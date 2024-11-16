@@ -26,13 +26,8 @@ const Content = () => {
 
   return (
     <main className="flex flex-col md:flex-row justify-center items-center p-8 space-y-4 md:space-y-0 md:space-x-8">
-      {/* Linker Bereich: Bild */}
       <div>
-        <img
-          src="https://via.placeholder.com/200" // Beliebiges Bild oder ein statisches Bild aus deinem Projekt
-          alt="Your chosen image"
-          className="rounded shadow-lg"
-        />
+        <img src="assets/img/chuckNorrisComic.png" className="rounded shadow-lg" alt="Image of a Chuck Norris cartoon"/>
       </div>
 
       {/* Rechter Bereich: Zitat */}
