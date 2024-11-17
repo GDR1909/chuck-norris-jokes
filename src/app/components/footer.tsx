@@ -2,23 +2,22 @@ import { prisma } from "../../../lib/prisma";
 
 const Footer = async () => {
   try {
-    // Besucheranzahl aus der Datenbank abrufen
     const visitorData = await prisma.visitorCount.findUnique({
-      where: { id: 1 }, // Annahme: Besucher-ID ist 1
+      where: { id: 1 },
     });
 
     const visitorCount = visitorData?.count || 0;
 
     return (
-      <footer>
-        <p>Besucheranzahl: {visitorCount}</p>
+      <footer className="flex justify-center p-8">
+        <p>Number of visitors: {visitorCount}</p>
       </footer>
     );
   } catch (error) {
     console.error("Fehler beim Abrufen der Besucheranzahl:", error);
     return (
-      <footer>
-        <p>Fehler beim Laden der Besucheranzahl.</p>
+      <footer className="flex justify-center p-8">
+        <p>Error loading visitor count.</p>
       </footer>
     );
   }

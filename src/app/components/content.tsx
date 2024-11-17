@@ -1,43 +1,33 @@
-"use client"; // Diese Zeile fügt den Client-Modus hinzu
+"use client";
 
 import { useState, useEffect } from "react";
 
 const Content = () => {
-  const [quote, setQuote] = useState<string>(""); // State für das Zitat
+  const [quote, setQuote] = useState<string>("");
 
-  // Funktion zum Laden eines neuen Zitats
   const fetchQuote = async () => {
     try {
-      const response = await fetch(
-        "https://api.chucknorris.io/jokes/random?category=dev"
-      );
+      const response = await fetch("https://api.chucknorris.io/jokes/random?category=dev");
       const data = await response.json();
-      setQuote(data.value); // Zitat im State speichern
+      setQuote(data.value);
     } catch (error) {
       console.error("Fehler beim Laden des Zitats:", error);
       setQuote("Fehler: Zitat konnte nicht geladen werden.");
     }
   };
 
-  // Zitat einmalig beim Laden der Seite holen
   useEffect(() => {
     fetchQuote();
   }, []);
 
   return (
-    <main className="flex flex-col md:flex-row justify-center items-center p-8 space-y-4 md:space-y-0 md:space-x-8">
-      <div>
-        <img src="assets/img/chuckNorrisComic.png" className="rounded shadow-lg" alt="Image of a Chuck Norris cartoon"/>
-      </div>
+    <main className="h-full flex justify-around items-center">
+      <img src="assets/img/chuckNorrisComic.png" className="max-w-[30.438rem] h-auto comic" alt="Image of a Chuck Norris comic"/>
 
-      {/* Rechter Bereich: Zitat */}
-      <div className="text-center md:text-left">
-        <p className="text-lg italic mb-4">"{quote}"</p>
-        <button
-          onClick={fetchQuote} // Button ruft die API auf
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Neues Zitat laden
+      <div className="w-[37.5rem] h-[18.75rem] flex flex-col justify-between items-center quote-container">
+        <p className="text-lg italic">"{quote}"</p>
+        <button onClick={fetchQuote} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+          Load new quote
         </button>
       </div>
     </main>

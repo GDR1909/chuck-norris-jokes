@@ -4,7 +4,7 @@ import Footer from "./components/footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="h-dvh max-w-[1920px] mx-[auto] my-[0] flex flex-col justify-between">
       <Header/>
       <Content/>
       <Footer/>
