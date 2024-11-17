@@ -2,15 +2,15 @@ import { prisma } from "../../../lib/prisma";
 
 const Footer = async () => {
   try {
-    const visitorData = await prisma.visitorCount.findUnique({
+    const visitorData = await prisma.visitorCount.upsert({
       where: { id: 1 },
+      update: { count: { increment: 1 } },
+      create: { id: 1, count: 1 },
     });
-
-    const visitorCount = visitorData?.count || 0;
 
     return (
       <footer className="flex justify-center p-8">
-        <p>Number of visitors: {visitorCount}</p>
+        <p>Number of visitors: {visitorData.count}</p>
       </footer>
     );
   } catch (error) {
