@@ -40,7 +40,7 @@ const Content = () => {
 
       <div className="w-[37.5rem] h-[12.5rem] flex flex-col justify-between items-center quote-and-btn-container">
         <div className="quote-container">
-          <p className="text-lg italic">"{quote}"</p>
+          <p className="text-lg italic">&quot;{quote}&quot;</p>
         </div>
 
         <button onClick={fetchQuote} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">

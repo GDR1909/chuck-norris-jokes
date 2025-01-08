@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 /**
  * Header component.
  * 
@@ -9,7 +11,7 @@
 const Header = () => {
   return (
     <header className="p-8">
-      <img src="assets/img/w&sLogo.svg" className="logo" alt="W&S Logo"/>
+      <Image src="/assets/img/logo.png" className="logo" alt="Logo" width={80} height={82.31}/>
     </header>
   );
 };

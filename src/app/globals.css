@@ -24,6 +24,10 @@ footer {
   background-color: rgb(43, 55, 57);
 }
 
+.logo {
+  width: 5rem;
+}
+
 @media (max-width: 1536px) {
   .comic {
     height: 28.125rem;
@@ -50,7 +54,7 @@ footer {
 
 @media (max-width: 768px) {
   .logo {
-    width: 3.75rem;
+    width: 3.125rem;
   }
 
   main {
